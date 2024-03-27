@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Famous news
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        {% for each_famous_new in famous_news %}
+            {{ each_famous_new.title }}
+            <br>
+            <br>
+            <br>
+            <hr>
+            <img src="{{ each_famous_new.image.url  }}" alt="image" style="width: 600px; height: 400px; ">
+            <div class="about"> 
+            views:{{ each_famous_new.views }}
+            {{ each_famous_new.created_at }}
+            by : {{ each_famous_new.author }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

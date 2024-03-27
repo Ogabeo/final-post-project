@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    category news
+{% endblock title %}
+{% block content %}
+    <div class="container">
+        {{ctg.name }}
+        {% for each_new in news %}
+
+            
+            
+            <a href="{% url 'home:detail' each_new.id %}">
+                <h2 style="color: blue;" >{{ each_new.title }}</h2>
+                <img src="{{ each_new.image.url }}" alt="image" style="width: 800px; height: 600px;">
+            </a>
+            <h3 style="color: magenta;">Created by : {{each_new.author}}  | views: {{ each_new.views }} </h3>
+         
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock content %}
