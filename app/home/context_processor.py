@@ -8,7 +8,8 @@ def index_processor(request):
     tags=Tags.objects.all().order_by('?')[:8]
     about=About.objects.all().first()
     random_two_news=New.objects.order_by('?')[:2]
-
+    random_one_new=New.objects.order_by("?")
+    
     recent_news=New.objects.all().order_by('-id')[:2]
     random_news=New.objects.all().order_by('?')[:6]
     famous_news=New.objects.all().order_by( '-views')[:4]
@@ -17,6 +18,7 @@ def index_processor(request):
 
 
     context={
+        'random_one_new':random_one_new,
         'random_two_news':random_two_news,
         'category':category,
         'tags':tags,

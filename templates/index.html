@@ -31,11 +31,11 @@
                                 <div class="col-8">
                                     <div class="features-content d-flex flex-column">
                                         <p class="text-uppercase mb-2">{{ each_new.category }}</p>
-                                        <a href="{% url 'home:detail' each_new.id %}" class="h6">
+                                        <a href="{% url 'home:detail' each_new.slug %}" class="h6">
 
                                             {{ each_new.title }}
                                         </a>
-                                        <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i>{{ each_new.created_at }}</small>
+                                        <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> {{ each_new.created_at }} </small>
                                         <small class="text-body d-block"><i class="fas fa-eye me-1"> Views: </i>{{ each_new.views }}</small>
 
                                     </div>
@@ -111,13 +111,13 @@
                                                         </div>
                                                     </div>
                                                     <div class="my-4">
-                                                        <a href="{% url 'home:detail' element.id %}" class="h4">{{ element.title }}</a>
+                                                        <a href="{% url 'home:detail' element.slug %}" class="h4">{{ element.title }}</a>
                                                     </div>
                                                     <div class="d-flex justify-content-between">
-                                                        <a href="{% url 'home:detail' element.id %}" class="text-dark link-hover me-3"><i class="fa fa-clock"></i> {{ element.created_at }}</a>
-                                                        <a href="{% url 'home:detail' element.id %}" class="text-dark link-hover me-3"><i class="fa fa-eye"></i> {{ element.views }} Views</a>
-                                                        <a href="{% url 'home:detail' element.id %}" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> 05 Comment</a>
-                                                        <a href="{% url 'home:detail' element.id %}" class="text-dark link-hover"><i class="fa fa-arrow-up"></i> 1.5k Share</a>
+                                                        <a href="{% url 'home:detail' element.slug %}" class="text-dark link-hover me-3"><i class="fa fa-clock"></i> {{ element.created_at }}</a>
+                                                        <a href="{% url 'home:detail' element.slug %}" class="text-dark link-hover me-3"><i class="fa fa-eye"></i> {{ element.views }} Views</a>
+                                                        <a href="{% url 'home:detail' element.slug %}" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> 05 Comment</a>
+                                                        <a href="{% url 'home:detail' element.slug %}" class="text-dark link-hover"><i class="fa fa-arrow-up"></i> 1.5k Share</a>
                                                     </div>
                                                     <p class="my-4">{{ element.body|safe|slice:"1000" }}...</p>
                                                 {% endif %}
@@ -145,7 +145,7 @@
                                                                 <div class="col-7">
                                                                     <div class="features-content d-flex flex-column">
                                                                         <p class="text-uppercase mb-2">{{ element.category }}</p>
-                                                                        <a href="{% url 'home:detail' element.id %}" class="h6">{{ element.title  }}</a>
+                                                                        <a href="{% url 'home:detail' element.slug %}" class="h6">{{ element.title  }}</a>
                                                                         <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> {{ element.created_at }}</small>
                                                                     </div>
                                                                 </div>
@@ -174,7 +174,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="my-3">
-                                                        <a href="{% url 'home:detail' element.id %}" class="h4">{{ element.title }}</a>
+                                                        <a href="{% url 'home:detail' element.slug %}" class="h4">{{ element.title }}</a>
                                                     </div>
                                                     <p class="mt-4">{{ element.body|safe|slice:"1000" }}...</p>
                                                     <div class="d-flex justify-content-between">
@@ -206,7 +206,7 @@
                                                                 <div class="col-7">
                                                                     <div class="features-content d-flex flex-column">
                                                                         <p class="text-uppercase mb-2">{{ element.category }}</p>
-                                                                        <a href="{% url 'home:detail' element.id %}" class="h6">{{ element.title }}</a>
+                                                                        <a href="{% url 'home:detail' element.slug %}" class="h6">{{ element.title }}</a>
                                                                         <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> {{ element.created_at }}</small>
                                                                     </div>
                                                                 </div>
@@ -271,7 +271,7 @@
                                                                 <div class="col-7">
                                                                     <div class="features-content d-flex flex-column">
                                                                         <p class="text-uppercase mb-2">{{ element.category }}</p>
-                                                                        <a href="{% url 'home:detail' element.id %}" class="h6">{{ element.title }}</a>
+                                                                        <a href="{% url 'home:detail' element.slug %}" class="h6">{{ element.title }}</a>
                                                                         <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i>{{ element.created_at }}</small>
                                                                     </div>
                                                                 </div>
@@ -302,14 +302,14 @@
                                                         </div>
                                                     </div>
                                                     <div class="my-3">
-                                                        <a href="{% url 'home:detail' element.id %}" class="h4"> {{ element.title }} </a>
+                                                        <a href="{% url 'home:detail' element.slug %}" class="h4"> {{ element.title }} </a>
                                                     </div>
                                                     <p class="mt-4"> {{ element.body|safe|slice:"150" }} </p>
                                                     <div class="d-flex justify-content-between">
-                                                        <a href="{% url 'home:detail' element.id %}" class="text-dark link-hover me-3"><i class="fa fa-clock"></i> {{ element.created_at }}</a>
-                                                        <a href="{% url 'home:detail' element.id %}" class="text-dark link-hover me-3"><i class="fa fa-eye"></i> {{ element.views }} Views</a>
-                                                        <a href="{% url 'home:detail' element.id %}" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> 05 Comment</a>
-                                                        <a href="{% url 'home:detail' element.id %}" class="text-dark link-hover"><i class="fa fa-arrow-up"></i> 1.5k Share</a>
+                                                        <a href="{% url 'home:detail' element.slug %}" class="text-dark link-hover me-3"><i class="fa fa-clock"></i> {{ element.created_at }}</a>
+                                                        <a href="{% url 'home:detail' element.slug %}" class="text-dark link-hover me-3"><i class="fa fa-eye"></i> {{ element.views }} Views</a>
+                                                        <a href="{% url 'home:detail' element.slug %}" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> 05 Comment</a>
+                                                        <a href="{% url 'home:detail' element.slug %}" class="text-dark link-hover"><i class="fa fa-arrow-up"></i> 1.5k Share</a>
                                                     </div>
                                                 {% endif %}
 
@@ -330,7 +330,7 @@
                                                                 <div class="col-7">
                                                                     <div class="features-content d-flex flex-column">
                                                                         <p class="text-uppercase mb-2">{{ element.category }}</p>
-                                                                        <a href="{% url ' home:detail ' element.id %}" class="h6">{{ element.title }}</a>
+                                                                        <a href="{% url ' home:detail ' element.slug %}" class="h6">{{ element.title }}</a>
                                                                         <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> {{ element.created_at }}</small>
                                                                     </div>
                                                                 </div>
@@ -359,16 +359,16 @@
                                                         </div>
                                                     </div>
                                                     <div class="my-3">
-                                                        <a href="{% url 'home:detail' element.id %}" class="h4">{{ element.title }}</a>
+                                                        <a href="{% url 'home:detail' element.slug %}" class="h4">{{ element.title }}</a>
                                                     </div>
                                                     <p class="mt-4">
                                                     {{ element.body|safe|slice:"1000" }}...
                                                     </p>
                                                     <div class="d-flex justify-content-between">
-                                                        <a href="{% url 'home:detail' element.id %}" class="text-dark link-hover me-3"><i class="fa fa-clock"></i> {{ element.created_at }}</a>
-                                                        <a href="{% url 'home:detail' element.id %}" class="text-dark link-hover me-3"><i class="fa fa-eye"></i> {{element.views}} Views</a>
-                                                        <a href="{% url 'home:detail' element.id %}" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> 05 Comment</a>
-                                                        <a href="{% url 'home:detail' element.id %}" class="text-dark link-hover"><i class="fa fa-arrow-up"></i> 1.5k Share</a>
+                                                        <a href="{% url 'home:detail' element.slug %}" class="text-dark link-hover me-3"><i class="fa fa-clock"></i> {{ element.created_at }}</a>
+                                                        <a href="{% url 'home:detail' element.slug %}" class="text-dark link-hover me-3"><i class="fa fa-eye"></i> {{element.views}} Views</a>
+                                                        <a href="{% url 'home:detail' element.slug %}" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> 05 Comment</a>
+                                                        <a href="{% url 'home:detail' element.slug %}" class="text-dark link-hover"><i class="fa fa-arrow-up"></i> 1.5k Share</a>
                                                     </div>
                                                 {% endif %}
 
@@ -392,7 +392,7 @@
                                                                 <div class="col-7">
                                                                     <div class="features-content d-flex flex-column">
                                                                         <p class="text-uppercase mb-2">{{ element.category }}</p>
-                                                                        <a href="{% url 'home:detail' element.id %}" class="h6">{{ element.title }}</a>
+                                                                        <a href="{% url 'home:detail' element.slug %}" class="h6">{{ element.title }}</a>
                                                                         <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> {{ element.created_at }}</small>
                                                                     </div>
                                                                 </div>
@@ -448,7 +448,7 @@
                                                     <img src="{{ element.image.url }} " class="img-zoomin img-fluid rounded-top w-100" alt="image">
                                                 </div>
                                                 <div class="d-flex flex-column p-4">
-                                                    <a href="{% url 'home:detail' element.id %}" class="h4">{{ element.title }}</a>
+                                                    <a href="{% url 'home:detail' element.slug %}" class="h4">{{ element.title }}</a>
                                                     <div class="d-flex justify-content-between">
                                                         <a href="/" class="small text-body link-hover">by Willium Smith</a>
                                                         <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i>{{ element.created_at }}</small>
@@ -467,10 +467,10 @@
                                                     <img src="{{ element.image.url }}" class="img-zoomin img-fluid rounded-top w-100" alt="image">
                                                 </div>
                                                 <div class="d-flex flex-column p-4">
-                                                    <a href="{% url 'home:detail' element.id %}" class="h4">{{ element.title }}</a>
+                                                    <a href="{% url 'home:detail' element.slug %}" class="h4">{{ element.title }}</a>
                                                     <div class="d-flex justify-content-between">
-                                                        <a href="{% url 'home:detail' element.id %}" class="small text-body link-hover">by {{ element.author }}</a>
-                                                        <a href="{% url 'home:detail' element.id %}" class="small text-body link-hover">views: {{ element.views }}</a>
+                                                        <a href="{% url 'home:detail' element.slug %}" class="small text-body link-hover">by {{ element.author }}</a>
+                                                        <a href="{% url 'home:detail' element.slug %}" class="small text-body link-hover">views: {{ element.views }}</a>
 
                                                         <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> {{ element.created_at }}</small>
                                                     </div>
@@ -492,10 +492,10 @@
                                     
                                     <div class="col-lg-6">
                                         <div class="lifestyle-item rounded">
-                                            <a href="{% url 'home:detail' element.id %}"><img src="{{ element.image.url }}" class="img-fluid w-100 rounded" alt="image" style="width: 300px; height: 300px;"></a>
+                                            <a href="{% url 'home:detail' element.slug %}"><img src="{{ element.image.url }}" class="img-fluid w-100 rounded" alt="image" style="width: 300px; height: 300px;"></a>
                                             <div class="lifestyle-content">
                                                <div class="mt-auto">
-                                                    <a href="{% url 'home:detail' element.id %}" class="h4 text-white link-hover">
+                                                    <a href="{% url 'home:detail' element.slug %}" class="h4 text-white link-hover">
                                                         {{ element.title }}
                                                     </a>
                                                     <div class="d-flex justify-content-between mt-4">
@@ -521,27 +521,27 @@
                                         <h4 class="mb-4">Stay Connected</h4>
                                         <div class="row g-4">
                                             <div class="col-12">
-                                                <a href="#" class="w-100 rounded btn btn-primary d-flex align-items-center p-3 mb-2">
+                                                <a href="{{ about.facebook }}" class="w-100 rounded btn btn-primary d-flex align-items-center p-3 mb-2">
                                                     <i class="fab fa-facebook-f btn btn-light btn-square rounded-circle me-3"></i>
                                                     <span class="text-white">13,977 Fans</span>
                                                 </a>
-                                                <a href="#" class="w-100 rounded btn btn-danger d-flex align-items-center p-3 mb-2">
+                                                <a href="{{ about.twitter }}" class="w-100 rounded btn btn-danger d-flex align-items-center p-3 mb-2">
                                                     <i class="fab fa-twitter btn btn-light btn-square rounded-circle me-3"></i>
                                                     <span class="text-white">21,798 Follower</span>
                                                 </a>
-                                                <a href="#" class="w-100 rounded btn btn-warning d-flex align-items-center p-3 mb-2">
+                                                <a href="{{ about.youtube }}" class="w-100 rounded btn btn-warning d-flex align-items-center p-3 mb-2">
                                                     <i class="fab fa-youtube btn btn-light btn-square rounded-circle me-3"></i>
                                                     <span class="text-white">7,999 Subscriber</span>
                                                 </a>
-                                                <a href="#" class="w-100 rounded btn btn-dark d-flex align-items-center p-3 mb-2">
+                                                <a href="{{ about.instagram }}" class="w-100 rounded btn btn-dark d-flex align-items-center p-3 mb-2">
                                                     <i class="fab fa-instagram btn btn-light btn-square rounded-circle me-3"></i>
                                                     <span class="text-white">19,764 Follower</span>
                                                 </a>
-                                                <a href="#" class="w-100 rounded btn btn-secondary d-flex align-items-center p-3 mb-2">
+                                                <a href="{{ about.browser }}" class="w-100 rounded btn btn-secondary d-flex align-items-center p-3 mb-2">
                                                     <i class="bi-cloud btn btn-light btn-square rounded-circle me-3"></i>
                                                     <span class="text-white">31,999 Subscriber</span>
                                                 </a>
-                                                <a href="#" class="w-100 rounded btn btn-warning d-flex align-items-center p-3 mb-4">
+                                                <a href="{{ about.browser }}" class="w-100 rounded btn btn-warning d-flex align-items-center p-3 mb-4">
                                                     <i class="fab fa-dribbble btn btn-light btn-square rounded-circle me-3"></i>
                                                     <span class="text-white">37,999 Subscriber</span>
                                                 </a>
@@ -549,150 +549,32 @@
                                         </div>
                                         <h4 class="my-4">Popular News</h4>
                                         <div class="row g-4">
-                                            <div class="col-12">
-                                                <div class="row g-4 align-items-center features-item">
-                                                    <div class="col-4">
-                                                        <div class="rounded-circle position-relative">
-                                                            <div class="overflow-hidden rounded-circle">
-                                                                <img src="img/features-sports-1.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
+                                            {% for new in most_famous_new_list %}
+
+                                                <div class="col-12">
+                                                    <div class="row g-4 align-items-center features-item">
+                                                        <div class="col-4">
+                                                            <div class="rounded-circle position-relative">
+                                                                <div class="overflow-hidden rounded-circle">
+                                                                    <img src="{{ new.image.url }}" class="img-zoomin img-fluid rounded-circle w-100" alt="image">
+                                                                </div>
+                                                                <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">{{ new.views }}</span>
                                                             </div>
-                                                            <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-8">
-                                                        <div class="features-content d-flex flex-column">
-                                                            <p class="text-uppercase mb-2">Sports</p>
-                                                            <a href="#" class="h6">
-                                                                Get the best speak market, news.
-                                                            </a>
-                                                            <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> December 9, 2024</small>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="row g-4 align-items-center features-item">
-                                                    <div class="col-4">
-                                                        <div class="rounded-circle position-relative">
-                                                            <div class="overflow-hidden rounded-circle">
-                                                                <img src="img/features-technology.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
+                                                        <div class="col-8">
+                                                            <div class="features-content d-flex flex-column">
+                                                                <p class="text-uppercase mb-2">{{ new.category }}</p>
+                                                                <a href="{% url 'home:detail' new.slug %}" class="h6">
+                                                                    {{ new.title }}
+                                                                </a>
+                                                                <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> December 9, 2024</small>
                                                             </div>
-                                                            <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-8">
-                                                        <div class="features-content d-flex flex-column">
-                                                            <p class="text-uppercase mb-2">Technology</p>
-                                                            <a href="#" class="h6">
-                                                                Get the best speak market, news.
-                                                            </a>
-                                                            <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> December 9, 2024</small>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="row g-4 align-items-center features-item">
-                                                    <div class="col-4">
-                                                        <div class="rounded-circle position-relative">
-                                                            <div class="overflow-hidden rounded-circle">
-                                                                <img src="img/features-fashion.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
-                                                            </div>
-                                                            <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-8">
-                                                        <div class="features-content d-flex flex-column">
-                                                            <p class="text-uppercase mb-2">Fashion</p>
-                                                            <a href="#" class="h6">
-                                                                Get the best speak market, news.
-                                                            </a>
-                                                            <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> December 9, 2024</small>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="row g-4 align-items-center features-item">
-                                                    <div class="col-4">
-                                                        <div class="rounded-circle position-relative">
-                                                            <div class="overflow-hidden rounded-circle">
-                                                                <img src="img/features-life-style.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
-                                                            </div>
-                                                            <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-8">
-                                                        <div class="features-content d-flex flex-column">
-                                                            <p class="text-uppercase mb-2">Life Style</p>
-                                                            <a href="#" class="h6">
-                                                                Get the best speak market, news.
-                                                            </a>
-                                                            <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> December 9, 2024</small>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <a href="#" class="link-hover btn border border-primary rounded-pill text-dark w-100 py-3 mb-4">View More</a>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="border-bottom my-3 pb-3">
-                                                    <h4 class="mb-0">Trending Tags</h4>
-                                                </div>
-                                                <ul class="nav nav-pills d-inline-flex text-center mb-4">
-                                                    <li class="nav-item mb-3">
-                                                        <a class="d-flex py-2 bg-light rounded-pill me-2" href="#">
-                                                            <span class="text-dark link-hover" style="width: 90px;">Lifestyle</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="nav-item mb-3">
-                                                        <a class="d-flex py-2 bg-light rounded-pill me-2" href="#">
-                                                            <span class="text-dark link-hover" style="width: 90px;">Sports</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="nav-item mb-3">
-                                                        <a class="d-flex py-2 bg-light rounded-pill me-2" href="#">
-                                                            <span class="text-dark link-hover" style="width: 90px;">Politics</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="nav-item mb-3">
-                                                        <a class="d-flex py-2 bg-light rounded-pill me-2" href="#">
-                                                            <span class="text-dark link-hover" style="width: 90px;">Magazine</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="nav-item mb-3">
-                                                        <a class="d-flex py-2 bg-light rounded-pill me-2" href="#">
-                                                            <span class="text-dark link-hover" style="width: 90px;">Game</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="nav-item mb-3">
-                                                        <a class="d-flex py-2 bg-light rounded-pill me-2" href="#">
-                                                            <span class="text-dark link-hover" style="width: 90px;">Movie</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="nav-item mb-3">
-                                                        <a class="d-flex py-2 bg-light rounded-pill me-2" href="#">
-                                                            <span class="text-dark link-hover" style="width: 90px;">Travel</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="nav-item mb-3">
-                                                        <a class="d-flex py-2 bg-light rounded-pill me-2" href="#">
-                                                            <span class="text-dark link-hover" style="width: 90px;">World</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="position-relative banner-2">
-                                                    <img src="img/banner-2.jpg" class="img-fluid w-100 rounded" alt="">
-                                                    <div class="text-center banner-content-2">
-                                                        <h6 class="mb-2">The Most Populer</h6>
-                                                        <p class="text-white mb-2">News & Magazine WP Theme</p>
-                                                        <a href="#" class="btn btn-primary text-white px-4">Shop Now</a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            {% endfor %}
+                                            
+
                                         </div>
                                     </div>
                                 </div>

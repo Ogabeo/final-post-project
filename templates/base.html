@@ -61,8 +61,14 @@
                             </div>
                             <div class="overflow-hidden" style="width: 735px;">
                                 <div id="note" class="ps-2">
-                                    <img src="{% static 'img/features-fashion.jpg' %}" class="img-fluid rounded-circle border border-3 border-primary me-2" style="width: 30px; height: 30px;" alt="">
-                                    <a href="#"><p class="text-white mb-0 link-hover">After working hard, It's surely fact that, We can achieve our goals...</p></a>
+                                    {% for each_new in random_one_new %}
+                                        {% if forloop.counter == 1 %}
+                                            <img src="{{ each_new.image.url }}" class="img-fluid rounded-circle border border-3 border-primary me-2" style="width: 30px; height: 30px;" alt="image">
+                                            <a href="{% url 'home:detail' each_new.slug %}"><p class="text-white mb-0 link-hover">{{ each_new.title }}</p></a>
+                                        
+                                        {% endif %}
+                                    {% endfor %}
+                                    
                                 </div>
                             </div>
                         </div>
@@ -85,7 +91,7 @@
             <div class="container-fluid bg-light">
                 <div class="container px-0">
                     <nav class="navbar navbar-light navbar-expand-xl">
-                        <a href="index.html" class="navbar-brand mt-3">
+                        <a href="{% url 'home:index' %}" class="navbar-brand mt-3">
                             <p class="text-primary display-6 mb-2" style="line-height: 0;">Newsers</p>
                             <small class="text-body fw-normal" style="letter-spacing: 12px;">Nespaper</small>
                         </a>
@@ -100,7 +106,7 @@
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Categories</a>
                                     <div class="dropdown-menu m-0 bg-secondary rounded-0">
                                         {% for each_category in category %} 
-                                            <a href="{% url 'home:category_news' each_category.id %}" class="dropdown-item">{{ each_category.name }}</a>
+                                            <a href="{% url 'home:category_news' each_category.slug %}" class="dropdown-item">{{ each_category.name }}</a>
                                         {% endfor %}
                                     </div>
                                 </div>
@@ -199,14 +205,14 @@
                             
 
                             <div class="d-flex flex-column mb-4">
-                                <a href="{% url 'home:detail' recent_new.id %}">
+                                <a href="{% url 'home:detail' recent_new.slug %}">
                                     <div class="d-flex align-items-center">
                                         <div class="rounded-circle border border-2 border-primary overflow-hidden">
-                                            <img src="{{ category.avatar.url }}" class="img-zoomin img-fluid rounded-circle w-100" alt="">
+                                            <img src="{{ recent_new.image.url }}" class="img-zoomin img-fluid rounded-circle w-100" alt="image">
                                         </div>
                                         <div class="d-flex flex-column ps-4">
                                             <p class="text-uppercase text-white mb-3">{{ recent_new.category }}</p>
-                                            <a href="{% url 'home:detail' recent_new.id %}" class="h6 text-white">
+                                            <a href="{% url 'home:detail' recent_new.slug %}" class="h6 text-white">
                                                 {{ recent_new.title }}
                                             </a>
                                             <small class="text-white d-block"><i class="fas fa-calendar-alt me-1"></i> {{ recent_new.created_at }}</small>
@@ -231,7 +237,7 @@
                         <div class="d-flex flex-column text-start footer-item-3">
                             <h4 class="mb-4 text-white">Categories</h4>
                             {% for each_category in category %}
-                                <a class="btn-link text-white" href="{% url 'home:category_news' each_category.id %}"><i class="fas fa-angle-right text-white me-2"></i>{{ each_category.name }}</a>
+                                <a class="btn-link text-white" href="{% url 'home:category_news' each_category.slug %}"><i class="fas fa-angle-right text-white me-2"></i>{{ each_category.name }}</a>
                             {% endfor %}
                            
                         </div>

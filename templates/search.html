@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}
+search results
+{% endblock title %}
+{% block content %}
+    <div class="container">
+        {% for search_result in searchnews %}
+            <a href="{% url 'home:detail' searchnews.slug %}"> {{ searchnews.title }} </a>
+            <h3> {{search_result.body|safe|truncatewords:50|linebreaks }} </h3>
+            <img src="{{ search_result.image.url }}" alt="image" style="width: 600px; height: 400px;">
+        {% endfor %}
+    </div>
+{% endblock content %}
