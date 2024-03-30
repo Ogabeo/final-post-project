@@ -92,7 +92,7 @@
                 <div class="container px-0">
                     <nav class="navbar navbar-light navbar-expand-xl">
                         <a href="{% url 'home:index' %}" class="navbar-brand mt-3">
-                            <p class="text-primary display-6 mb-2" style="line-height: 0;">Newsers</p>
+                            <p class="text-primary display-6 mb-2" style="line-height: 0;">My own website</p>
                             <small class="text-body fw-normal" style="letter-spacing: 12px;">Nespaper</small>
                         </a>
                         <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -143,7 +143,7 @@
                     </div>
                     <div class="modal-body d-flex align-items-center">
                         <div class="input-group w-75 mx-auto d-flex">
-                            <form action="" class="input-group w-75 mx-auto d-flex" >
+                            <form  class="input-group w-75 mx-auto d-flex" method="GET" >
                                 <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
                                 <button id="search-icon-1" type="submit" class="input-group-text p-3"><i class="fa fa-search"></i></button>
                             </form>
@@ -253,7 +253,7 @@
                                     
                                     <div class="col-4">
                                         <div class="rounded overflow-hidden">
-                                            <img src="{{ each_new.image.url }}" class="img-zoomin img-fluid rounded w-100" alt="">
+                                            <img src="{{ each_new.image.url }}" class="img-zoomin img-fluid rounded w-100" alt="image">
                                         </div>
                                     </div>
                                 {% endfor %}
