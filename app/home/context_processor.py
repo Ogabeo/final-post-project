@@ -10,7 +10,7 @@ def index_processor(request):
     random_two_news=New.objects.order_by('?')[:2]
     random_one_new=New.objects.order_by("?")
     
-    recent_news=New.objects.all().order_by('-id')[:2]
+    recent_news=New.objects.all().order_by('-id')[:5]
     random_news=New.objects.all().order_by('?')[:6]
     famous_news=New.objects.all().order_by( '-views')[:4]
     

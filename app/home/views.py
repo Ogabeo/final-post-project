@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import View
-from .models import New, Category, Comment
+from .models import New, Category, Comment, Tags
 from django.contrib import messages
 from django.db.models import Q
+# from itertools import chain
 
 # Create your views here.
 
@@ -34,7 +35,7 @@ class IndexView(View):
 
     def get(self, request):
         most_famous_new=New.objects.all().order_by('-views').first()
-        most_famous_new_list=New.objects.all().order_by('-views')[:6]
+        most_famous_new_list=New.objects.all().order_by('-views')[:5]
         sport_famous_news=New.objects.filter(category__name='Sport').order_by('-id')[:6]
         kundalik_hayot_famous_news=New.objects.filter(category__name='Kundalik Hayot').order_by('-id')[:6]
         IT_famous_news=New.objects.filter(category__name='IT ga oid').order_by('-id')[:6]
@@ -106,7 +107,7 @@ class SearchView(View):
         # tag_news= tag.new_set.all()
         # result_list = list(chain(tag_news, news))
         context={
-            "searchnews":news
-            # "searchnews":result_list
+            "searchnews":news,
+            # "searchnewsss":result_list
         }
         return render(request, 'search.html', context )
