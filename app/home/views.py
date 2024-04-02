@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import View
-from .models import New, Category, Comment, Tags
+from .models import New, Category, Comment, Tags, Users_email
 from django.contrib import messages
 from django.db.models import Q
 # from itertools import chain
@@ -15,7 +15,8 @@ class Famous_News_List(View):
         }
         return render(request, 'famous_news.html', context)
 
-
+# class New_User(View):
+#     def get
 
 class Category_News_List(View):
     def get(self, request, slug):
@@ -35,7 +36,8 @@ class IndexView(View):
 
     def get(self, request):
         most_famous_new=New.objects.all().order_by('-views').first()
-        most_famous_new_list=New.objects.all().order_by('-views')[:5]
+        most_famous_new_list=New.objects.all().order_by('-views')[:6]
+        famous_new_for_recommend=New.objects.all().order_by('-views')[:3]
         sport_famous_news=New.objects.filter(category__name='Sport').order_by('-id')[:6]
         kundalik_hayot_famous_news=New.objects.filter(category__name='Kundalik Hayot').order_by('-id')[:6]
         IT_famous_news=New.objects.filter(category__name='IT ga oid').order_by('-id')[:6]
@@ -45,6 +47,7 @@ class IndexView(View):
         context={
             
             'IT_famous_news':IT_famous_news,
+            'famous_new_for_recommend':famous_new_for_recommend,
             'kundalik_hayot_famous_news':kundalik_hayot_famous_news,
             'Futbol_famous_news':Futbol_famous_news ,
             'sport_famous_news':sport_famous_news,
@@ -111,3 +114,19 @@ class SearchView(View):
             # "searchnewsss":result_list
         }
         return render(request, 'search.html', context )
+class famous_news(View):
+    def get(self, request):
+        all_famous_news=New.objects.all().order_by('-views')[:20]
+        context={
+            'all_famous_news':all_famous_news
+        }
+        return render(request, 'famous_news.html', context)
+
+class User_email(View):
+    
+    def post(self, request):
+        data = request.POST
+        user=Users_email()   
+        user.email=data.get('email')
+        user.save()
+        messages.success(request, 'Your email was sent...')

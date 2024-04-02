@@ -24,6 +24,11 @@ class Category(BaseModel):
     def __str__(self):
         return self.name
     
+class Users_email(BaseModel):
+    email=models.EmailField()
+    def __str__(self):
+        return self.email
+      
 class Tags(BaseModel):
     name=models.CharField(max_length=50)
     def __str__(self):

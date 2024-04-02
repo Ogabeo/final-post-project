@@ -13,11 +13,11 @@ def index_processor(request):
     recent_news=New.objects.all().order_by('-id')[:5]
     random_news=New.objects.all().order_by('?')[:6]
     famous_news=New.objects.all().order_by( '-views')[:4]
-    
     # num_views=New.objects.filter(created_at)
 
 
     context={
+    
         'random_one_new':random_one_new,
         'random_two_news':random_two_news,
         'category':category,
