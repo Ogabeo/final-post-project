@@ -1,6 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
-from .models import New, Category, Comment, Tags, Users_email
+from .models import New, Category, Comment, Tags, Users_email, ContactUs
 from django.contrib import messages
 from django.db.models import Q
 # from itertools import chain
@@ -38,7 +38,7 @@ class IndexView(View):
         most_famous_new=New.objects.all().order_by('-views').first()
         most_famous_new_list=New.objects.all().order_by('-views')[:6]
         famous_new_for_recommend=New.objects.all().order_by('-views')[:3]
-        sport_famous_news=New.objects.filter(category__name='Sport').order_by('-id')[:6]
+        sport_famous_news=New.objects.filter(category__name='Sports').order_by('-id')[:6]
         kundalik_hayot_famous_news=New.objects.filter(category__name='Kundalik Hayot').order_by('-id')[:6]
         IT_famous_news=New.objects.filter(category__name='IT ga oid').order_by('-id')[:6]
         Technology_famous_news=New.objects.filter(category__name='Technology').order_by('-id')[:6]
@@ -62,9 +62,21 @@ class IndexView(View):
         return render(request, 'index.html', context)
 
 
-class ContactUs(View):
+class ContactUs_view(View):
     def get(self, request):
         return render(request, 'contact.html')
+    def post(self, request):
+        data=request.POST
+        contact=ContactUs()
+        contact.name=data.get('name')
+        contact.email=data.get('email')
+        contact.phone=data.get('phone')
+        contact.subject=data.get('subject')
+        contact.message=data.get('message')
+        contact.save()
+        
+        return render(request, 'index.html')
+
 class Error404(View):
     def get(self, request):
         return render(request, '404.html')
@@ -122,7 +134,7 @@ class famous_news(View):
         }
         return render(request, 'famous_news.html', context)
 
-class User_email(View):
+class User_email_view(View):
     
     def post(self, request):
         data = request.POST
@@ -130,3 +142,4 @@ class User_email(View):
         user.email=data.get('email')
         user.save()
         messages.success(request, 'Your email was sent...')
+        return redirect('home:index')

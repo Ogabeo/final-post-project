@@ -15,14 +15,13 @@ contact us
                                 <h1 class="mb-4">General Customer Care & Technical Support</h1>
                                 <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
                                 <div class="rounded">
-                                    <iframe class="rounded w-100" 
-                                    style="height: 425px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd" 
-                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    <div style="position:relative;overflow:hidden;"><a href="https://yandex.uz/maps/10335/tashkent/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Toshkent</a><a href="https://yandex.uz/maps/10335/tashkent/?feedback=map%2Fedit&feedback-context=map.context&ll=69.289333%2C41.336604&utm_medium=mapframe&utm_source=maps&z=15" style="color:#eee;font-size:12px;position:absolute;top:14px;">Yandex Xarita</a><iframe src="https://yandex.uz/map-widget/v1/?feedback=map%2Fedit&feedback-context=map.context&ll=69.289333%2C41.336604&z=15" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-7">
-                            <form action="" class="mb-4">
+                            <form method="POST" class="mb-4">
+                                {% csrf_token %}
                                 <div class="row g-4">
                                     <div class="col-lg-6">
                                         <input type="text" class="w-100 form-control border-0 py-3" name="name" placeholder="Your Name">
@@ -37,7 +36,7 @@ contact us
                                         <input type="text" class="w-100 form-control border-0 py-3" name="subject" placeholder="Subject">
                                     </div>
                                     <div class="col-12">
-                                        <textarea class="w-100 form-control border-0" rows="6" cols="10" placeholder="Your Message"></textarea>
+                                        <textarea class="w-100 form-control border-0" rows="6" cols="10" placeholder="Your Message" name="message"></textarea>
                                     </div>
                                     <div class="col-12">
                                         <button class="w-100 btn btn-primary form-control py-3" type="submit">Submit Now</button>
@@ -50,7 +49,7 @@ contact us
                                         <i class="fas fa-map-marker-alt fa-2x text-primary me-4"></i>
                                         <div>
                                             <h4>Address</h4>
-                                            <p class="mb-0">123 Street New York.USA</p>
+                                            <p class="mb-0">{{ about.address }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -59,7 +58,7 @@ contact us
                                         <i class="fas fa-envelope fa-2x text-primary me-4"></i>
                                         <div>
                                             <h4>Mail Us</h4>
-                                            <p class="mb-0">info@example.com</p>
+                                            <p class="mb-0">{{ about.email }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -68,7 +67,7 @@ contact us
                                         <i class="fa fa-phone-alt fa-2x text-primary me-4"></i>
                                         <div>
                                             <h4>Telephone</h4>
-                                            <p class="mb-0">(+012) 3456 7890</p>
+                                            <p class="mb-0">{{ about.phone }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -78,10 +77,10 @@ contact us
                                         <div>
                                             <h4>Share</h4>
                                             <div class="d-flex">
-                                                <a class="me-3" href=""><i class="fab fa-twitter text-dark link-hover"></i></a>
-                                                <a class="me-3" href=""><i class="fab fa-facebook-f text-dark link-hover"></i></a>
-                                                <a class="me-3" href=""><i class="fab fa-youtube text-dark link-hover"></i></a>
-                                                <a class="" href=""><i class="fab fa-linkedin-in text-dark link-hover"></i></a>
+                                                <a class="me-3" href="{{ about.twitter }}"><i class="fab fa-twitter text-dark link-hover"></i></a>
+                                                <a class="me-3" href="{{ about.facebook }}"><i class="fab fa-facebook-f text-dark link-hover"></i></a>
+                                                <a class="me-3" href="{{ about.youtube }}"><i class="fab fa-youtube text-dark link-hover"></i></a>
+                                                <a class="" href="{{ about.linkedin }}"><i class="fab fa-linkedin-in text-dark link-hover"></i></a>
                                             </div>
                                         </div>
                                     </div>

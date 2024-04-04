@@ -62,7 +62,7 @@ class About(BaseModel):
     telegram=models.CharField(max_length=100)
     email=models.EmailField(null=True)
     phone=models.CharField(max_length=20, null=True, blank=True)
-
+    address=models.CharField(max_length=450, null=True, blank=True)
 
 
     def __str__(self):
@@ -76,7 +76,7 @@ class ContactUs(BaseModel):
     message=models.TextField()
 
     def __str__(self):
-        return self.name
+        return self.first_name
 
 class Comment(BaseModel):
     full_name=models.CharField(max_length=60)
@@ -85,6 +85,8 @@ class Comment(BaseModel):
 
     def __str__(self):
         return self.full_name
+
+
 
 
 

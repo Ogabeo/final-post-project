@@ -212,7 +212,61 @@ home page
 
                             <div class="tab-content mb-4">
 
-                            
+                                <div id="tab-1" class="tab-pane fade show p-0 active">
+                                    <div class="row g-4">
+                                        <div class="col-lg-8">
+                                            {% for each_new in sport_famous_news %}
+                                                {% if forloop.counter == 1 %}
+                                                
+                                                    <div class="position-relative rounded overflow-hidden">
+                                                        <img src="{{ each_new.image.url }}" class="img-zoomin img-fluid rounded w-100" alt="image">
+                                                        <div class="position-absolute text-white px-4 py-2 bg-primary rounded" style="top: 20px; right: 20px;">                                              
+                                                            {{ each_new.category }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="my-3">
+                                                        <a href="{% url 'home:detail' each_new.slug %}" class="h4">{{ each_new.title }}</a>
+                                                    </div>
+                                                    <p class="mt-4">
+                                                        {{ each_new.body|safe|slice:"250" }}...
+                                                    </p>
+                                                    <div class="d-flex justify-content-between">
+                                                        <a href="#" class="text-dark link-hover me-3"><i >by: </i> {{ each_new.author }}</a>
+                                                        <a href="#" class="text-dark link-hover me-3"><i class="fa fa-eye"></i>{{ each_new.views }} Views</a>
+                                                        <a href="#" class="text-dark link-hover"><i class="fa fa-clock"></i>{{ each_new.created_at }}</a>
+                                                    </div>
+                                                {% endif %}
+
+                                            {% endfor %}
+
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="row g-4">
+                                                {% for each_new in sport_famous_news %}
+                                                    {% if forloop.counter != 1 %}
+                                                        <div class="col-12">
+                                                            <div class="row g-4 align-items-center">
+                                                                <div class="col-5">
+                                                                    <div class="overflow-hidden rounded">
+                                                                        <img src="{{ each_new.image.url }}" class="img-zoomin img-fluid rounded w-100" alt="image" style="width: 120px; height: 90px;" >
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-7">
+                                                                    <div class="features-content d-flex flex-column">
+                                                                        <p class="text-uppercase mb-2">{{ each_new.category }}</p>
+                                                                        <a href="{% url 'home:detail' each_new.slug %}" class="h6">{{ each_new.title }}</a>
+                                                                        <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> {{ each_new.created_at }}</small>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                              
                                 <div id="tab-2" class="tab-pane fade show p-0">
                                     <div class="row g-4">

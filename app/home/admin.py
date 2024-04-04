@@ -22,11 +22,12 @@ class CommentAdmin(admin.ModelAdmin):
 
 class User_email_admin(admin.ModelAdmin):
     list_display=('id', 'email')
-
+class Contact_us_admin(admin.ModelAdmin):
+    list_display=('id', 'email')
 
 admin.site.register(New, NewAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(ContactUs)
+admin.site.register(ContactUs, Contact_us_admin)
 admin.site.register(About)
 admin.site.register(Tags)
 admin.site.register(Comment, CommentAdmin)
